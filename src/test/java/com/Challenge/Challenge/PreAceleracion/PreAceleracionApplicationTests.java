@@ -1,4 +1,4 @@
-package com.Challenge.PreAceleracion;
+package com.Challenge.Challenge.PreAceleracion;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
