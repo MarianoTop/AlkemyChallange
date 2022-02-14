@@ -31,11 +31,20 @@ public class Pelicula {
     private int Calificacion;
 
     @ManyToOne(fetch= FetchType.EAGER, cascade= CascadeType.ALL)
+
     @JoinColumn(name="genero_id",insertable = false,updatable = false)
     private Genero genero;
 
     @Column(name="genero_id", nullable = false)
     private Long generoId;
+
+  /*
+  ¿ no seria mas simple hacerlo asi? No termino de tener en claro porque el profesor
+  del video decidio la otra manera
+      @JoinColumn(name="genero_id")
+    private Genero genero;
+*/
+
 
     @ManyToMany(cascade= {
             CascadeType.PERSIST,

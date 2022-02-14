@@ -5,7 +5,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name="personaje")
@@ -23,8 +25,12 @@ public class Personaje {
     private String historia;
 
     @ManyToMany(mappedBy = "personajes", cascade = CascadeType.ALL)
-    // ¿Esta bien inicializarlo aca (vi que en los videos lo hacen asi?, ¿deberia hacerlo en un constructor?
-    private List<Pelicula> peliculas= new ArrayList<>();
+    /* ¿Es necesario inicializar el objecto (vi que en los videos lo hacen asi?,
+    entiendo segun este link que para diagramar no es necesario, pero que para que
+    no devuelva null si
+    https://stackoverflow.com/questions/20715143/to-initialize-or-not-initialize-jpa-relationship-mappings
+    */
+    private Set<Pelicula> peliculas= new HashSet<>();
 
 
 }
