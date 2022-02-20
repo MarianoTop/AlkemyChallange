@@ -51,5 +51,17 @@ public class PeliculaController {
         peliculaService.delete(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
+    @PostMapping("/{id}/personaje/{idPersonaje}")
+    public ResponseEntity<Void> addPersonaje (@PathVariable Long id, @PathVariable long idPersonaje){
+        peliculaService.addPersonaje(id,idPersonaje);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    @DeleteMapping("/{id}/personaje/{idPersonaje}")
+    public ResponseEntity<Void> removePersonaje (@PathVariable Long id, @PathVariable long idPersonaje){
+        peliculaService.removePersonaje(id,idPersonaje);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
 
 }

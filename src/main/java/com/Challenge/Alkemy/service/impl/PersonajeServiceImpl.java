@@ -25,7 +25,7 @@ public class PersonajeServiceImpl implements PersonajeService {
         if(entity==null){
             throw new RuntimeException("Personaje no encontrado");
         }
-        PersonajeDTO dto=personajeMapper.personajeEntity2PersonajeDTO(entity);
+        PersonajeDTO dto=personajeMapper.personajeEntity2PersonajeDTO(entity,true);
         return dto;
     }
 
@@ -46,7 +46,7 @@ public class PersonajeServiceImpl implements PersonajeService {
     public PersonajeDTO save(PersonajeDTO dto){
        Personaje entity= personajeMapper.personajeDTO2Entity(dto);
        Personaje entityGuardada=personajeRepository.save(entity);
-       PersonajeDTO result= personajeMapper.personajeEntity2PersonajeDTO(entityGuardada);
+       PersonajeDTO result= personajeMapper.personajeEntity2PersonajeDTO(entityGuardada,true);
        return result;
     }
 
@@ -59,7 +59,7 @@ public class PersonajeServiceImpl implements PersonajeService {
         }
         this.personajeMapper.personajeEntityRefreshValues(entitySearched,dto);
         Personaje entityModified=personajeRepository.save(entitySearched);
-        PersonajeDTO result= personajeMapper.personajeEntity2PersonajeDTO(entityModified);
+        PersonajeDTO result= personajeMapper.personajeEntity2PersonajeDTO(entityModified,true);
 
         return result;
     }

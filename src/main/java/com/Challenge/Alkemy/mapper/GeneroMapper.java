@@ -14,7 +14,7 @@ public class GeneroMapper {
         Genero generoEntity = new Genero();
         generoEntity.setImagen(dto.getImagen());
         generoEntity.setNombre(dto.getNombre());
-        generoEntity.setPeliculas(dto.getPeliculas());
+
 
         return generoEntity;
     }
@@ -23,7 +23,7 @@ public class GeneroMapper {
        GeneroDTO dto =  new GeneroDTO();
        dto.setImagen(entity.getImagen());
        dto.setNombre(entity.getNombre());
-       dto.setPeliculas(entity.getPeliculas());
+
        dto.setId(entity.getId());
        return dto;
     }

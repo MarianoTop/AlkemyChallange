@@ -22,7 +22,7 @@ public class PeliculaDTO {
     private LocalDate fechaCreacion;
 
     private int Calificacion;
-    private Genero genero;
+    private GeneroDTO genero;
     private Long generoId;
     private Set<PersonajeDTO> personajes= new HashSet<>();
 

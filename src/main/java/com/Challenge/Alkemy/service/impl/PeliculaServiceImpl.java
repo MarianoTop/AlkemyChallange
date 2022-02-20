@@ -24,6 +24,8 @@ public class PeliculaServiceImpl implements PeliculaService {
     private PeliculaMapper peliculaMapper;
     @Autowired
     private PeliculaRepository peliculaRepository;
+    @Autowired
+    private PersonajeRepository personajeRepository;
 
     @Override
     public PeliculaDTO findById(Long id) {
@@ -31,7 +33,7 @@ public class PeliculaServiceImpl implements PeliculaService {
         if(entity==null){
             throw new RuntimeException("Pelicula no encontrada");
         }
-        PeliculaDTO dto=peliculaMapper.peliculaEntity2PeliculaDTO(entity);
+        PeliculaDTO dto=peliculaMapper.peliculaEntity2PeliculaDTO(entity,true);
         return dto;
     }
 
@@ -39,6 +41,10 @@ public class PeliculaServiceImpl implements PeliculaService {
     public void delete(Long id) {
         peliculaRepository.deleteById(id);
     }
+
+
+
+
 
     @Override
     public List<PeliculaBasicDTO> getAllPeliculas() {
@@ -52,7 +58,7 @@ public class PeliculaServiceImpl implements PeliculaService {
     public PeliculaDTO save(PeliculaDTO dto){
        Pelicula entity= peliculaMapper.peliculaDTO2Entity(dto);
        Pelicula entitySaved=peliculaRepository.save(entity);
-       PeliculaDTO result= peliculaMapper.peliculaEntity2PeliculaDTO(entitySaved);
+       PeliculaDTO result= peliculaMapper.peliculaEntity2PeliculaDTO(entitySaved,true);
        return result;
     }
 
@@ -65,9 +71,47 @@ public class PeliculaServiceImpl implements PeliculaService {
         }
         this.peliculaMapper.peliculaEntityRefreshValues(entitySearched,dto);
         Pelicula entityModified=peliculaRepository.save(entitySearched);
-        PeliculaDTO result= peliculaMapper.peliculaEntity2PeliculaDTO(entityModified);
+        PeliculaDTO result= peliculaMapper.peliculaEntity2PeliculaDTO(entityModified,true);
 
         return result;
+    }
+
+    @Override
+    public void addPersonaje(Long id, Long idPersonaje) {
+
+        Pelicula peliculaSearched= this.peliculaRepository.findById(id).orElse(null);
+
+        if(peliculaSearched==null){
+            throw new RuntimeException("Pelicula was not found");
+        }
+
+        Personaje personajeSearched= this.personajeRepository.findById(idPersonaje).orElse(null);
+
+        if (personajeSearched==null){
+            throw new RuntimeException("Personaje was not found");
+        }
+
+        peliculaSearched.getPersonajes().add(personajeSearched);
+        peliculaRepository.save(peliculaSearched);
+
+    }
+    @Override
+    public void removePersonaje(Long id, Long idPersonaje) {
+
+        Pelicula peliculaSearched= this.peliculaRepository.findById(id).orElse(null);
+
+        if(peliculaSearched==null){
+            throw new RuntimeException("Pelicula was not found");
+        }
+
+        Personaje personajeSearched= this.personajeRepository.findById(idPersonaje).orElse(null);
+
+        if (personajeSearched==null){
+            throw new RuntimeException("Personaje was not found");
+        }
+
+        peliculaSearched.getPersonajes().remove(personajeSearched);
+        peliculaRepository.save(peliculaSearched);
     }
 
 

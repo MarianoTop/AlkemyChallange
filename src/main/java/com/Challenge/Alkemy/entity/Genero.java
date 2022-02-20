@@ -24,7 +24,6 @@ public class Genero {
     private String nombre;
     private String imagen;
 
-    @OneToMany(mappedBy="genero")
-    private List<Pelicula> peliculas= new ArrayList<>();
+
     private boolean deleted= Boolean.FALSE;
 }

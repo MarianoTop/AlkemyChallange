@@ -8,6 +8,7 @@ import com.Challenge.Alkemy.entity.Pelicula;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.Id;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -19,11 +20,15 @@ public class PeliculaMapper {
     @Autowired
     PersonajeMapper personajeMapper;
 
+    @Autowired
+    GeneroMapper generoMapper;
+
     public Pelicula peliculaDTO2Entity(PeliculaDTO dto){
 
         Pelicula entity= new Pelicula();
         entity.setImagen(dto.getImagen());
         entity.setCalificacion(dto.getCalificacion());
+       // entity.setGenero(this.generoMapper.generoDTO2Entity(dto.getGenero()));
         entity.setGeneroId(dto.getGeneroId());
         entity.setPersonajes(personajeMapper.personajeDTOSet2EntitySet(dto.getPersonajes()));
         entity.setTitulo(dto.getTitulo());
@@ -31,13 +36,16 @@ public class PeliculaMapper {
         return entity;
     }
 
-    public PeliculaDTO peliculaEntity2PeliculaDTO(Pelicula entity){
+    public PeliculaDTO peliculaEntity2PeliculaDTO(Pelicula entity, boolean loadCharacter){
 
         PeliculaDTO dto= new PeliculaDTO();
         dto.setImagen(entity.getImagen());
-        dto.setGenero(entity.getGenero());
+       // dto.setGenero(generoMapper.generoEntity2DTO(entity.getGenero()));
+        dto.setGeneroId(entity.getGeneroId());
         dto.setCalificacion(entity.getCalificacion());
-        dto.setPersonajes(this.personajeMapper.personajeEntitySet2DTOSet(entity.getPersonajes()));
+        if(loadCharacter){
+            dto.setPersonajes(this.personajeMapper.personajeEntitySet2DTOSet(entity.getPersonajes(),false));
+        }
         dto.setFechaCreacion(entity.getFechaCreacion());
         dto.setTitulo(entity.getTitulo());
         dto.setId(entity.getId());
@@ -66,12 +74,12 @@ public class PeliculaMapper {
         return peliculaBasicDtoList;
 
     }
-    public Set<PeliculaDTO> peliculaEntitySet2DTOSet(Set<Pelicula> entities){
+    public Set<PeliculaDTO> peliculaEntitySet2DTOSet(Set<Pelicula> entities, boolean loadCharacter){
 
         Set<PeliculaDTO> peliculaDtoSet= new HashSet<>();
 
         for(Pelicula entity: entities){
-            peliculaDtoSet.add(this.peliculaEntity2PeliculaDTO(entity));
+            peliculaDtoSet.add(this.peliculaEntity2PeliculaDTO(entity,loadCharacter));
         }
 
         return peliculaDtoSet;
@@ -99,6 +107,10 @@ public class PeliculaMapper {
 
         if(dto.getTitulo()!=null && !dto.getTitulo().isEmpty()){
             entity.setTitulo(dto.getTitulo());
+        }
+
+        if(dto.getGenero()!=null){
+            entity.setGenero(generoMapper.generoDTO2Entity(dto.getGenero()));
         }
 
         if(dto.getGeneroId()!=0){

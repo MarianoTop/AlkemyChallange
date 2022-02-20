@@ -26,19 +26,24 @@ public class PersonajeMapper {
         entity.setImagen(dto.getImagen());
         entity.setNombre(dto.getNombre());
         entity.setEdad(dto.getEdad());
-        entity.setPeliculas(peliculaMapper.peliculaDTOSet2EntitySet(dto.getPeliculas()));
+
+            entity.setPeliculas(peliculaMapper.peliculaDTOSet2EntitySet(dto.getPeliculas()));
+
         entity.setHistoria(dto.getHistoria());
         entity.setPeso(dto.getPeso());
         return entity;
     }
 
-    public PersonajeDTO personajeEntity2PersonajeDTO(Personaje entity){
+    public PersonajeDTO personajeEntity2PersonajeDTO(Personaje entity, boolean loadMovies){
 
         PersonajeDTO dto= new PersonajeDTO();
         dto.setImagen(entity.getImagen());
         dto.setNombre(entity.getNombre());
         dto.setEdad(entity.getEdad());
-        dto.setPeliculas(peliculaMapper.peliculaEntitySet2DTOSet(entity.getPeliculas()));
+        if(loadMovies){
+            dto.setPeliculas(peliculaMapper.peliculaEntitySet2DTOSet(entity.getPeliculas(),false));
+        }
+
         dto.setHistoria(entity.getHistoria());
         dto.setPeso(entity.getPeso());
         dto.setId(entity.getId());
@@ -66,12 +71,12 @@ public class PersonajeMapper {
 
     }
 
-    public Set<PersonajeDTO> personajeEntitySet2DTOSet(Set<Personaje> entities){
+    public Set<PersonajeDTO> personajeEntitySet2DTOSet(Set<Personaje> entities,boolean loadMovies){
 
         Set<PersonajeDTO> personajesDtoSet= new HashSet<>();
 
         for(Personaje entity: entities){
-            personajesDtoSet.add(this.personajeEntity2PersonajeDTO(entity));
+            personajesDtoSet.add(this.personajeEntity2PersonajeDTO(entity,loadMovies));
         }
 
         return personajesDtoSet;
