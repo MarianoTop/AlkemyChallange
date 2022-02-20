@@ -19,5 +19,5 @@ public class PersonajeDTO {
     private int edad;
     private double peso;
     private String historia;
-    private Set<Pelicula> peliculas= new HashSet<>();
+    private Set<PeliculaDTO> peliculas= new HashSet<>();
 }

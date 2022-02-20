@@ -24,6 +24,6 @@ public class PeliculaDTO {
     private int Calificacion;
     private Genero genero;
     private Long generoId;
-    private Set<Personaje> personajes= new HashSet<>();
+    private Set<PersonajeDTO> personajes= new HashSet<>();
 
 }

@@ -15,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("movies")
+
 public class PeliculaController {
     @Autowired
     PeliculaService peliculaService;

@@ -6,13 +6,19 @@ import com.Challenge.Alkemy.dto.PersonajeBasicDTO;
 
 import com.Challenge.Alkemy.dto.PersonajeDTO;
 import com.Challenge.Alkemy.entity.Personaje;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Component
 public class PersonajeMapper {
+
+    @Autowired
+    PeliculaMapper peliculaMapper;
 
     public Personaje personajeDTO2Entity(PersonajeDTO dto){
 
@@ -20,7 +26,7 @@ public class PersonajeMapper {
         entity.setImagen(dto.getImagen());
         entity.setNombre(dto.getNombre());
         entity.setEdad(dto.getEdad());
-        entity.setPeliculas(dto.getPeliculas());
+        entity.setPeliculas(peliculaMapper.peliculaDTOSet2EntitySet(dto.getPeliculas()));
         entity.setHistoria(dto.getHistoria());
         entity.setPeso(dto.getPeso());
         return entity;
@@ -32,7 +38,7 @@ public class PersonajeMapper {
         dto.setImagen(entity.getImagen());
         dto.setNombre(entity.getNombre());
         dto.setEdad(entity.getEdad());
-        dto.setPeliculas(entity.getPeliculas());
+        dto.setPeliculas(peliculaMapper.peliculaEntitySet2DTOSet(entity.getPeliculas()));
         dto.setHistoria(entity.getHistoria());
         dto.setPeso(entity.getPeso());
         dto.setId(entity.getId());
@@ -60,6 +66,30 @@ public class PersonajeMapper {
 
     }
 
+    public Set<PersonajeDTO> personajeEntitySet2DTOSet(Set<Personaje> entities){
+
+        Set<PersonajeDTO> personajesDtoSet= new HashSet<>();
+
+        for(Personaje entity: entities){
+            personajesDtoSet.add(this.personajeEntity2PersonajeDTO(entity));
+        }
+
+        return personajesDtoSet;
+
+    }
+
+    public Set<Personaje> personajeDTOSet2EntitySet(Set<PersonajeDTO> dtos){
+
+        Set<Personaje> personajesEntitySet= new HashSet<>();
+
+        for(PersonajeDTO dto: dtos){
+            personajesEntitySet.add(this.personajeDTO2Entity(dto));
+        }
+
+        return personajesEntitySet;
+
+    }
+
     public Personaje personajeEntityRefreshValues(Personaje entity, PersonajeDTO dto){
 
         if(dto.getEdad()!=0){
@@ -82,7 +112,7 @@ public class PersonajeMapper {
             entity.setPeso(dto.getPeso());
         }
         if(dto.getPeliculas().size()!=0){
-            entity.setPeliculas(dto.getPeliculas());
+            entity.setPeliculas(peliculaMapper.peliculaDTOSet2EntitySet(dto.getPeliculas()));
         }
 
        return entity;

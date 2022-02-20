@@ -5,13 +5,19 @@ import com.Challenge.Alkemy.dto.PeliculaDTO;
 
 import com.Challenge.Alkemy.entity.Pelicula;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Component
 public class PeliculaMapper {
+
+    @Autowired
+    PersonajeMapper personajeMapper;
 
     public Pelicula peliculaDTO2Entity(PeliculaDTO dto){
 
@@ -19,7 +25,7 @@ public class PeliculaMapper {
         entity.setImagen(dto.getImagen());
         entity.setCalificacion(dto.getCalificacion());
         entity.setGeneroId(dto.getGeneroId());
-        entity.setPersonajes(dto.getPersonajes());
+        entity.setPersonajes(personajeMapper.personajeDTOSet2EntitySet(dto.getPersonajes()));
         entity.setTitulo(dto.getTitulo());
         entity.setFechaCreacion(dto.getFechaCreacion());
         return entity;
@@ -31,7 +37,7 @@ public class PeliculaMapper {
         dto.setImagen(entity.getImagen());
         dto.setGenero(entity.getGenero());
         dto.setCalificacion(entity.getCalificacion());
-        dto.setPersonajes(entity.getPersonajes());
+        dto.setPersonajes(this.personajeMapper.personajeEntitySet2DTOSet(entity.getPersonajes()));
         dto.setFechaCreacion(entity.getFechaCreacion());
         dto.setTitulo(entity.getTitulo());
         dto.setId(entity.getId());
@@ -60,6 +66,30 @@ public class PeliculaMapper {
         return peliculaBasicDtoList;
 
     }
+    public Set<PeliculaDTO> peliculaEntitySet2DTOSet(Set<Pelicula> entities){
+
+        Set<PeliculaDTO> peliculaDtoSet= new HashSet<>();
+
+        for(Pelicula entity: entities){
+            peliculaDtoSet.add(this.peliculaEntity2PeliculaDTO(entity));
+        }
+
+        return peliculaDtoSet;
+
+    }
+
+
+    public Set<Pelicula> peliculaDTOSet2EntitySet(Set<PeliculaDTO> dtos){
+
+        Set<Pelicula> peliculaEntitySet= new HashSet<>();
+
+        for(PeliculaDTO dto: dtos){
+            peliculaEntitySet.add(this.peliculaDTO2Entity(dto));
+        }
+
+        return peliculaEntitySet;
+
+    }
 
     public Pelicula peliculaEntityRefreshValues(Pelicula entity, PeliculaDTO dto){
 
@@ -83,7 +113,7 @@ public class PeliculaMapper {
             entity.setFechaCreacion(dto.getFechaCreacion());
         }
         if(dto.getPersonajes().size()!=0){
-            entity.setPersonajes(dto.getPersonajes());
+            entity.setPersonajes(personajeMapper.personajeDTOSet2EntitySet(dto.getPersonajes()));
         }
 
        return entity;
