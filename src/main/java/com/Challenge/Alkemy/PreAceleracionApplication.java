@@ -1,4 +1,4 @@
-package com.Challenge.Challenge;
+package com.Challenge.Alkemy;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
