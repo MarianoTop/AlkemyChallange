@@ -29,7 +29,8 @@ public class Pelicula {
     @DateTimeFormat(pattern = "yyyy/mm/dd")
     private LocalDate fechaCreacion;
 
-    private int Calificacion;
+
+    private int calificacion;
 
     @ManyToOne(fetch= FetchType.EAGER)
 

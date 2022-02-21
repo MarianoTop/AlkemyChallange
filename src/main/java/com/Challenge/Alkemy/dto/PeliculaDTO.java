@@ -21,9 +21,17 @@ public class PeliculaDTO {
     @DateTimeFormat(pattern = "yyyy/mm/dd")
     private LocalDate fechaCreacion;
 
-    private int Calificacion;
+    private int calificacion;
     private GeneroDTO genero;
     private Long generoId;
     private Set<PersonajeDTO> personajes= new HashSet<>();
+
+    public void setCalificacion(int calificacion){
+
+        if(calificacion<=0|| calificacion>5){
+            throw new RuntimeException("el numero debe ser superior a 0 y menor a 6");
+        }
+        this.calificacion=calificacion;
+    }
 
 }
