@@ -1,0 +1,284 @@
+{
+	"info": {
+		"_postman_id": "ff208ad9-aea1-46f3-9d29-da74d8d68b42",
+		"name": "Alkemy-Disney",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Personajes",
+			"item": [
+				{
+					"name": "CharacterGetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/characters",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"characters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CharacterGetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/characters/36",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"characters",
+								"36"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "personajesSave",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"imagen\":\"/usr/temp/img3.jpg\",\r\n    \"nombre\":\"Lobo\",\r\n    \"edad\": 65,\r\n    \"peso\": 120,\r\n    \"historia\": \"Enemigo de Caperucita\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/characters",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"characters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "personajesModified",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"imagen\":\"/usr/temp/img4.jpg\",\r\n    \"nombre\":\"Abuelita\",\r\n    \"edad\": 99\r\n   \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/characters/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"characters",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CharacterRemove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/characters/39",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"characters",
+								"39"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Peliculas",
+			"item": [
+				{
+					"name": "moviesGetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/movies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "moviesGetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/movies/38",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"38"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "moviesSave",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"imagen\":\"/usr/temp/img3.jpg\",\r\n    \"titulo\":\"Los Simpsons\",\r\n    \"fechaCreacion\": \"2021-02-20\",\r\n    \"calificacion\": 3,\r\n    \"generoId\": \"1\",\r\n    \"personajes\": [\r\n        {\r\n            \r\n                    \"imagen\":\"/usr/temp/img3.jpg\",\r\n                    \"nombre\":\"Abuelo Simpson\",\r\n                    \"edad\": 65,\r\n                    \"peso\": 120,\r\n                    \"historia\": \"abuelo de bart\"\r\n\r\n        },\r\n\r\n         {\r\n            \r\n                    \"imagen\":\"/usr/temp/img3.jpg\",\r\n                    \"nombre\":\"Bart\",\r\n                    \"edad\": 9,\r\n                    \"peso\": 30,\r\n                    \"historia\": \"hijo de homero\"\r\n\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/movies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "moviesAddPersonaje",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"imagen\":\"/usr/temp/img3.jpg\",\r\n    \"titulo\":\"Caperucita roja y el lobo\",\r\n    \"fechaCreacion\": \"2021-02-20\",\r\n    \"califacion\": 2,\r\n    \"generoId\": \"2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/movies/31/personaje/34",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"31",
+								"personaje",
+								"34"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "moviesRemovePersonaje",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"imagen\":\"/usr/temp/img3.jpg\",\r\n    \"titulo\":\"Caperucita roja y el lobo\",\r\n    \"fechaCreacion\": \"2021-02-20\",\r\n    \"califacion\": 2,\r\n    \"generoId\": \"2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/movies/31/personaje/34",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"31",
+								"personaje",
+								"34"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "moviesDelete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/movies/25",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"25"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
