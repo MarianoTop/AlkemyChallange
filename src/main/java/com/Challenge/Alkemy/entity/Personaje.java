@@ -26,7 +26,8 @@ public class Personaje {
     private double peso;
     private String historia;
 
-    @ManyToMany(mappedBy = "personajes", cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "personajes")
+    // cascade = CascadeType.ALL , esto remuevo la pelicula al remover el personaje)
     /* ¿Es necesario inicializar el objecto (vi que en los videos lo hacen asi?,
     entiendo segun este link que para diagramar no es necesario, pero que para que
     no devuelva null si

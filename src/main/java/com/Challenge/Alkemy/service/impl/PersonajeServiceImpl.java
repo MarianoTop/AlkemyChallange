@@ -31,6 +31,7 @@ public class PersonajeServiceImpl implements PersonajeService {
 
     @Override
     public void delete(Long id) {
+
         personajeRepository.deleteById(id);
     }
 
