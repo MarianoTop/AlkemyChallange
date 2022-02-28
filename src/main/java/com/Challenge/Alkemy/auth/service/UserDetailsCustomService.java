@@ -3,6 +3,7 @@ package com.Challenge.Alkemy.auth.service;
 import com.Challenge.Alkemy.auth.dto.UserDTO;
 import com.Challenge.Alkemy.auth.entity.UserEntity;
 import com.Challenge.Alkemy.auth.repository.UserRepository;
+import com.Challenge.Alkemy.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,8 +18,8 @@ public class UserDetailsCustomService implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
-   // @Autowired
-   // private EmailService emailService;
+    @Autowired
+    private EmailService emailService;
 
 
 
@@ -41,7 +42,7 @@ public class UserDetailsCustomService implements UserDetailsService {
         userEntity.setPassword(userDTO.getPassword());
         userEntity=this.userRepository.save(userEntity);
         if(userEntity!=null){
-            //emailService.sendWelcomeEmailTo(userEntity.getUsername());
+            emailService.sendWelcomeEmailTo(userEntity.getUsername());
         }
 
         return userEntity!=null;

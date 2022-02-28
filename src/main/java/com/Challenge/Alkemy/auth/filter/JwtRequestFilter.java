@@ -1,4 +1,4 @@
-package com.Challenge.Alkemy.auth.repository;
+package com.Challenge.Alkemy.auth.filter;
 
 import com.Challenge.Alkemy.auth.service.JwtUtils;
 import com.Challenge.Alkemy.auth.service.UserDetailsCustomService;

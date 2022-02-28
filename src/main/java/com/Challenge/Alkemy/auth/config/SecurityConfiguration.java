@@ -1,6 +1,6 @@
 package com.Challenge.Alkemy.auth.config;
 
-import com.Challenge.Alkemy.auth.repository.JwtRequestFilter;
+import com.Challenge.Alkemy.auth.filter.JwtRequestFilter;
 import com.Challenge.Alkemy.auth.service.UserDetailsCustomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
