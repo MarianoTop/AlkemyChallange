@@ -43,6 +43,8 @@ public class UserAuthController {
     @PostMapping("/singup")
         public ResponseEntity<AuthenticationResponse> singUp(@Valid @RequestBody UserDTO user) throws Exception{
 
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+
             this.userDetailsService.save(user);
             return ResponseEntity.status(HttpStatus.CREATED).build();
 

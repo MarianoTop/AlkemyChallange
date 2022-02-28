@@ -45,7 +45,7 @@ public class UserDetailsCustomService implements UserDetailsService {
     public boolean save (UserDTO userDTO){
         UserEntity userEntity= new UserEntity();
         userEntity.setUsername(userDTO.getUsername());
-        userEntity.setPassword(passwordEncoder.encode(userDTO.getPassword()));
+        userEntity.setPassword(userDTO.getPassword());
         userEntity=this.userRepository.save(userEntity);
         if(userEntity!=null){
             emailService.sendWelcomeEmailTo(userEntity.getUsername());
