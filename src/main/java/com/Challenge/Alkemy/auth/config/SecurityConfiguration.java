@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
@@ -21,15 +22,23 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private UserDetailsCustomService userDetailsCustomService;
     @Autowired
     private JwtRequestFilter jwtRequestFilter;
+
+
     
     @Override
     protected void configure (AuthenticationManagerBuilder auth) throws Exception{
-        auth.userDetailsService(userDetailsCustomService);
+        /*Entiendo que esto se aplica al momento de la autenticacion,
+        *  en un principio no puse password encoder aqui sino que dentro de la linea 60 del auth controller puse esto
+        *new UsernamePasswordAuthenticationToken(authRequest.getUsername(), passwordEncoder.encode(authRequest.getPassword()))
+        *sin embargo desconozco pero no funciono
+        *
+        *   */
+        auth.userDetailsService(userDetailsCustomService).passwordEncoder(passwordEncoder());
     }
 
     @Bean
     public PasswordEncoder passwordEncoder(){
-        return NoOpPasswordEncoder.getInstance();
+        return new BCryptPasswordEncoder();
     }
 
     @Override

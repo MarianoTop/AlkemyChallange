@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -22,6 +23,11 @@ public class UserDetailsCustomService implements UserDetailsService {
     private EmailService emailService;
 
 
+    /*Obtenido de:
+    * https://www.baeldung.com/spring-security-registration-password-encoding-bcrypt
+    *  */
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
 
     @Override
@@ -39,7 +45,7 @@ public class UserDetailsCustomService implements UserDetailsService {
     public boolean save (UserDTO userDTO){
         UserEntity userEntity= new UserEntity();
         userEntity.setUsername(userDTO.getUsername());
-        userEntity.setPassword(userDTO.getPassword());
+        userEntity.setPassword(passwordEncoder.encode(userDTO.getPassword()));
         userEntity=this.userRepository.save(userEntity);
         if(userEntity!=null){
             emailService.sendWelcomeEmailTo(userEntity.getUsername());
