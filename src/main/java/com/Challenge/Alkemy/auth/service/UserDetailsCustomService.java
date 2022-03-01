@@ -37,15 +37,17 @@ public class UserDetailsCustomService implements UserDetailsService {
         if(userEntity == null){
             throw new UsernameNotFoundException("Username or password not found");
         }
-        
+
         return new User(userEntity.getUsername(),userEntity.getPassword(), Collections.emptyList() );
     }
+
+
 
 
     public boolean save (UserDTO userDTO){
         UserEntity userEntity= new UserEntity();
         userEntity.setUsername(userDTO.getUsername());
-        userEntity.setPassword(userDTO.getPassword());
+        userEntity.setPassword(passwordEncoder.encode(userDTO.getPassword()));
         userEntity=this.userRepository.save(userEntity);
         if(userEntity!=null){
             emailService.sendWelcomeEmailTo(userEntity.getUsername());
