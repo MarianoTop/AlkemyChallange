@@ -113,7 +113,7 @@ public class PeliculaMapper {
             entity.setGenero(generoMapper.generoDTO2Entity(dto.getGenero()));
         }
 
-        if(dto.getGeneroId()!=0){
+        if(dto.getGeneroId()!=null && dto.getGeneroId()!=0){
             entity.setGeneroId(dto.getGeneroId());
         }
 
