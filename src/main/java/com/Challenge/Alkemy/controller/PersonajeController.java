@@ -19,6 +19,11 @@ public class PersonajeController {
     @Autowired
     PersonajeService personajeService;
 
+
+
+
+
+    @RequestMapping("/getAll")
     @GetMapping
     public ResponseEntity<List<PersonajeBasicDTO>> getAll(){
         List<PersonajeBasicDTO> personajes = personajeService.getAllPersonajes();
