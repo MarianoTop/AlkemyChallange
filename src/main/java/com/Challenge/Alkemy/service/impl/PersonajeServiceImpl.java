@@ -2,9 +2,11 @@ package com.Challenge.Alkemy.service.impl;
 
 import com.Challenge.Alkemy.dto.PersonajeBasicDTO;
 import com.Challenge.Alkemy.dto.PersonajeDTO;
+import com.Challenge.Alkemy.dto.PersonajeFilterDTO;
 import com.Challenge.Alkemy.entity.Personaje;
 import com.Challenge.Alkemy.mapper.PersonajeMapper;
 import com.Challenge.Alkemy.repository.PersonajeRepository;
+import com.Challenge.Alkemy.repository.specifications.PersonajeSpecification;
 import com.Challenge.Alkemy.service.PersonajeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +20,10 @@ public class PersonajeServiceImpl implements PersonajeService {
     private PersonajeMapper personajeMapper;
     @Autowired
     private PersonajeRepository personajeRepository;
+
+    @Autowired
+    private PersonajeSpecification personajeSpecification;
+
 
     @Override
     public PersonajeDTO findById(Long id) {
@@ -33,6 +39,15 @@ public class PersonajeServiceImpl implements PersonajeService {
     public void delete(Long id) {
 
         personajeRepository.deleteById(id);
+    }
+
+    @Override
+    public List<PersonajeDTO> getByFilters(String name, int age, long idMovie) {
+        PersonajeFilterDTO filtersDTO = new PersonajeFilterDTO(name,age,idMovie);
+
+        List<Personaje> entities = this.personajeRepository.findAll(this.personajeSpecification.getByFilters(filtersDTO));
+        List<PersonajeDTO> dtos = this.personajeMapper.personajeEntityList2DTOList(entities,true);
+        return dtos;
     }
 
     @Override

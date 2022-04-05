@@ -16,4 +16,6 @@ public interface PersonajeService {
     public PersonajeDTO findById(Long id);
 
     public void delete(Long id);
+
+    public List<PersonajeDTO> getByFilters(String name, int age, long idMovie);
 }

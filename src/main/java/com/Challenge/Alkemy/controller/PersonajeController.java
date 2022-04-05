@@ -19,40 +19,48 @@ public class PersonajeController {
     @Autowired
     PersonajeService personajeService;
 
+    @GetMapping
+    public ResponseEntity<List<PersonajeDTO>> getDetailsByFilters(
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) int age,
+            @RequestParam(required = false) long idMovie
+            )    {
+        List<PersonajeDTO> personajes = personajeService.getByFilters(name,age,idMovie);
 
-
+        return ResponseEntity.ok(personajes);
+    }
 
 
     @RequestMapping("/getAll")
     @GetMapping
-    public ResponseEntity<List<PersonajeBasicDTO>> getAll(){
+    public ResponseEntity<List<PersonajeBasicDTO>> getAll() {
         List<PersonajeBasicDTO> personajes = personajeService.getAllPersonajes();
 
         return ResponseEntity.ok().body(personajes);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PersonajeDTO> getById( @PathVariable Long id){
-       PersonajeDTO dto= personajeService.findById(id);
+    public ResponseEntity<PersonajeDTO> getById(@PathVariable Long id) {
+        PersonajeDTO dto = personajeService.findById(id);
 
         return ResponseEntity.ok(dto);
     }
 
     @PostMapping
-    public ResponseEntity<PersonajeDTO> save (@RequestBody PersonajeDTO dto){
+    public ResponseEntity<PersonajeDTO> save(@RequestBody PersonajeDTO dto) {
         PersonajeDTO personajeGuardado = personajeService.save(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(personajeGuardado);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<PersonajeDTO> update (@PathVariable Long id, @RequestBody PersonajeDTO dto){
-        PersonajeDTO personajeSaved = personajeService.update(id,dto);
+    public ResponseEntity<PersonajeDTO> update(@PathVariable Long id, @RequestBody PersonajeDTO dto) {
+        PersonajeDTO personajeSaved = personajeService.update(id, dto);
         return ResponseEntity.ok().body(personajeSaved);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete (@PathVariable Long id){
-       personajeService.delete(id);
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        personajeService.delete(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 

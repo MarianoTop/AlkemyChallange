@@ -71,6 +71,18 @@ public class PersonajeMapper {
 
     }
 
+    public List<PersonajeDTO> personajeEntityList2DTOList(List<Personaje> entities, boolean load){
+
+        List<PersonajeDTO> personajesDtoList= new ArrayList<>();
+
+        for(Personaje entity: entities){
+            personajesDtoList.add(this.personajeEntity2PersonajeDTO(entity,load));
+        }
+
+        return personajesDtoList;
+
+    }
+
     public Set<PersonajeDTO> personajeEntitySet2DTOSet(Set<Personaje> entities,boolean loadMovies){
 
         Set<PersonajeDTO> personajesDtoSet= new HashSet<>();
