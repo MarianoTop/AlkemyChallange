@@ -128,9 +128,12 @@ public class PersonajeMapper {
         if(dto.getPeso()!=0){
             entity.setPeso(dto.getPeso());
         }
+
+        /* Consigna: Al momento del Update, es importante solo actualizar la Entidad Personaje y
+no su listado de películas
         if(dto.getPeliculas().size()!=0){
             entity.setPeliculas(peliculaMapper.peliculaDTOSet2EntitySet(dto.getPeliculas()));
-        }
+        }*/
 
        return entity;
 

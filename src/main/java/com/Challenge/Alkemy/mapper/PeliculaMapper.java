@@ -124,9 +124,11 @@ public class PeliculaMapper {
         if(dto.getFechaCreacion()!=null){
             entity.setFechaCreacion(dto.getFechaCreacion());
         }
+        /*  Consigna: Al momento del Update, es importante solo actualizar la Entidad
+Película y no su listado de personajes
         if(dto.getPersonajes().size()!=0){
             entity.setPersonajes(personajeMapper.personajeDTOSet2EntitySet(dto.getPersonajes()));
-        }
+        }*/
 
        return entity;
 
