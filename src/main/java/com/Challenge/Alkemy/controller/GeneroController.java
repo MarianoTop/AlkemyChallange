@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("genres")
 public class GeneroController {
@@ -18,7 +20,7 @@ public class GeneroController {
     GeneroService generoService;
 
     @PostMapping
-    public ResponseEntity<GeneroDTO> save (@RequestBody GeneroDTO dto){
+    public ResponseEntity<GeneroDTO> save (@Valid @RequestBody GeneroDTO dto){
         GeneroDTO generoSaved= this.generoService.save(dto);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(generoSaved);

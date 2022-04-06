@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "ff208ad9-aea1-46f3-9d29-da74d8d68b42",
+		"_postman_id": "7fed14d3-4745-4061-b7ff-fa6d943c83e5",
 		"name": "Alkemy-Disney",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -12,7 +12,39 @@
 					"name": "CharacterGetAll",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDkyNTEzODgsImlhdCI6MTY0OTIxNTM4OH0._x7UQhzycSktQs6MUI4e7lu6OqCW-9YEyUu1Ox4uGkk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/characters/getAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"characters",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CharacterGetDetailsByFilter",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDkyMDk1MzksImlhdCI6MTY0OTE3MzUzOX0.0hEgxBQfMmhZpWDJ71GiRY-JUos3drkacDcglmQgY7M",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "http://localhost:8080/characters",
 							"protocol": "http",
@@ -31,9 +63,15 @@
 					"name": "CharacterGetById",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDkyNTEzMjgsImlhdCI6MTY0OTIxNTMyOH0.0aw8A5tLDyLyLh6-liJJ7kxrz0UQl0Fg-Gm1n2t3gKk",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:8080/characters/36",
+							"raw": "http://localhost:8080/characters/88",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -41,7 +79,7 @@
 							"port": "8080",
 							"path": [
 								"characters",
-								"36"
+								"88"
 							]
 						}
 					},
@@ -51,10 +89,16 @@
 					"name": "personajesSave",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDkyMjM5NjAsImlhdCI6MTY0OTE4Nzk2MH0.3Iua_ZN0r66oamiDojfwmpNoxwG4EEku40rdBPLLMSA",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"imagen\":\"/usr/temp/img3.jpg\",\r\n    \"nombre\":\"Lobo\",\r\n    \"edad\": 65,\r\n    \"peso\": 120,\r\n    \"historia\": \"Enemigo de Caperucita\"\r\n}",
+							"raw": "{\r\n   \"imagen\":\"/usr/temp/img3.jpg\",\r\n    \"nombre\":\"Marge\",\r\n    \"edad\": 38,\r\n    \"peso\": 50,\r\n    \"historia\": \"Madre de Bart y Lisa\"\r\n   \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -79,10 +123,16 @@
 					"name": "personajesModified",
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDkyNTQ5OTgsImlhdCI6MTY0OTIxODk5OH0.tJZxvA6jjRxp5uO2eEz_4ReDTfYUPuEwA3n40X-izTQ",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"imagen\":\"/usr/temp/img4.jpg\",\r\n    \"nombre\":\"Abuelita\",\r\n    \"edad\": 99\r\n   \r\n}",
+							"raw": "{\r\n   \"imagen\":\"/usr/temp/img4.jpg\",\r\n    \"nombre\":\"Homero \",\r\n    \"edad\": 45,\r\n    \"peso\":80,\r\n    \"historia\":\"padre de bart\",\r\n    \"peliculas\": []\r\n   \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -90,7 +140,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/characters/4",
+							"raw": "http://localhost:8080/characters/43",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -98,7 +148,7 @@
 							"port": "8080",
 							"path": [
 								"characters",
-								"4"
+								"43"
 							]
 						}
 					},
@@ -133,7 +183,13 @@
 					"name": "moviesGetAll",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDkyMTk4ODcsImlhdCI6MTY0OTE4Mzg4N30.dIBdIyQPXEmRg-lHWk335tYruzt4TSCbZVnABqlc0sI",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "http://localhost:8080/movies",
 							"protocol": "http",
@@ -152,9 +208,15 @@
 					"name": "moviesGetById",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDkyNTQ5OTgsImlhdCI6MTY0OTIxODk5OH0.tJZxvA6jjRxp5uO2eEz_4ReDTfYUPuEwA3n40X-izTQ",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:8080/movies/38",
+							"raw": "http://localhost:8080/movies/98",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -162,7 +224,7 @@
 							"port": "8080",
 							"path": [
 								"movies",
-								"38"
+								"98"
 							]
 						}
 					},
@@ -172,10 +234,16 @@
 					"name": "moviesSave",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDkyNTYxMTksImlhdCI6MTY0OTIyMDExOX0.l67ENG_rVfmgoXCZaP13AYxMN1t7EJK90OvFLkpyFAs",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"imagen\":\"/usr/temp/img3.jpg\",\r\n    \"titulo\":\"Los Simpsons\",\r\n    \"fechaCreacion\": \"2021-02-20\",\r\n    \"calificacion\": 3,\r\n    \"generoId\": \"1\",\r\n    \"personajes\": [\r\n        {\r\n            \r\n                    \"imagen\":\"/usr/temp/img3.jpg\",\r\n                    \"nombre\":\"Abuelo Simpson\",\r\n                    \"edad\": 65,\r\n                    \"peso\": 120,\r\n                    \"historia\": \"abuelo de bart\"\r\n\r\n        },\r\n\r\n         {\r\n            \r\n                    \"imagen\":\"/usr/temp/img3.jpg\",\r\n                    \"nombre\":\"Bart\",\r\n                    \"edad\": 9,\r\n                    \"peso\": 30,\r\n                    \"historia\": \"hijo de homero\"\r\n\r\n        }\r\n    ]\r\n}",
+							"raw": "{\r\n   \"imagen\":\"/usr/temp/img3.jpg\",\r\n    \"titulo\":\"Los Simpsons 2da\",\r\n    \"fechaCreacion\": \"2021-02-20\",\r\n    \"calificacion\": 0,\r\n    \"generoId\": \"1\",\r\n    \"personajes\": [\r\n        {\r\n            \r\n                    \"imagen\":\"/usr/temp/img3.jpg\",\r\n                    \"nombre\":\"Abuelo Simpson\",\r\n                    \"edad\": 65,\r\n                    \"peso\": 120,\r\n                    \"historia\": \"abuelo de bart\"\r\n\r\n        },\r\n\r\n         {\r\n            \r\n                    \"imagen\":\"/usr/temp/img3.jpg\",\r\n                    \"nombre\":\"Bart\",\r\n                    \"edad\": 9,\r\n                    \"peso\": 30,\r\n                    \"historia\": \"hijo de homero\"\r\n\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -200,18 +268,15 @@
 					"name": "moviesAddPersonaje",
 					"request": {
 						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"imagen\":\"/usr/temp/img3.jpg\",\r\n    \"titulo\":\"Caperucita roja y el lobo\",\r\n    \"fechaCreacion\": \"2021-02-20\",\r\n    \"califacion\": 2,\r\n    \"generoId\": \"2\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDkyMjM5NjAsImlhdCI6MTY0OTE4Nzk2MH0.3Iua_ZN0r66oamiDojfwmpNoxwG4EEku40rdBPLLMSA",
+								"type": "text"
 							}
-						},
+						],
 						"url": {
-							"raw": "http://localhost:8080/movies/31/personaje/34",
+							"raw": "http://localhost:8080/movies/74/personaje/87",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -219,9 +284,9 @@
 							"port": "8080",
 							"path": [
 								"movies",
-								"31",
+								"74",
 								"personaje",
-								"34"
+								"87"
 							]
 						}
 					},
@@ -231,7 +296,13 @@
 					"name": "moviesRemovePersonaje",
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDkyMjM5NjAsImlhdCI6MTY0OTE4Nzk2MH0.3Iua_ZN0r66oamiDojfwmpNoxwG4EEku40rdBPLLMSA",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n   \"imagen\":\"/usr/temp/img3.jpg\",\r\n    \"titulo\":\"Caperucita roja y el lobo\",\r\n    \"fechaCreacion\": \"2021-02-20\",\r\n    \"califacion\": 2,\r\n    \"generoId\": \"2\"\r\n}",
@@ -242,7 +313,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/movies/31/personaje/34",
+							"raw": "http://localhost:8080/movies/74/personaje/87",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -250,9 +321,9 @@
 							"port": "8080",
 							"path": [
 								"movies",
-								"31",
+								"74",
 								"personaje",
-								"34"
+								"87"
 							]
 						}
 					},
@@ -273,6 +344,140 @@
 							"path": [
 								"movies",
 								"25"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PeliculasModified",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDkyNTY5MjIsImlhdCI6MTY0OTIyMDkyMn0.oynLJ0zwaZa4Dqxt-mk_pBuhCZIn3E6XmW318tF79yI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"imagen\":\"/usr/temp/img3.jpg\",\r\n    \"titulo\":\"Los Simpsons 4\",\r\n    \"fechaCreacion\": \"2021-02-20\",\r\n    \"calificacion\": 9\r\n  \r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/movies/74",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"74"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "singup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"username\":\"1user@hotmail.com.prueba\",\r\n\"password\":\"password156\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/auth/singup",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"singup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"username\":\"1user@hotmail.com.prueba\",\r\n\"password\":\"password156\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/auth/singin",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"singin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Genero",
+			"item": [
+				{
+					"name": "genreSave",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDkyNTY5MjIsImlhdCI6MTY0OTIyMDkyMn0.oynLJ0zwaZa4Dqxt-mk_pBuhCZIn3E6XmW318tF79yI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"nombre\":\"Comedia bizarra\",\r\n    \"imagen\": \"/12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/genres",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"genres"
 							]
 						}
 					},
