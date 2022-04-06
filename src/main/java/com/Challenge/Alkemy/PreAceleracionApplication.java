@@ -10,4 +10,8 @@ public class PreAceleracionApplication {
 		SpringApplication.run(PreAceleracionApplication.class, args);
 	}
 
+
+	/*Anotaciones para el examinador:
+	* Me quedo pendiente la busqueda con filtro.
+	*  */
 }
