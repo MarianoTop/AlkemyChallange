@@ -1,11 +1,13 @@
 package com.Challenge.Alkemy.service.impl;
 
+import com.Challenge.Alkemy.auxiliary.ErrorMessage;
 import com.Challenge.Alkemy.dto.PeliculaBasicDTO;
 import com.Challenge.Alkemy.dto.PeliculaDTO;
 import com.Challenge.Alkemy.dto.PersonajeBasicDTO;
 import com.Challenge.Alkemy.dto.PersonajeDTO;
 import com.Challenge.Alkemy.entity.Pelicula;
 import com.Challenge.Alkemy.entity.Personaje;
+import com.Challenge.Alkemy.exception.ParamNotFound;
 import com.Challenge.Alkemy.mapper.PeliculaMapper;
 import com.Challenge.Alkemy.mapper.PersonajeMapper;
 import com.Challenge.Alkemy.repository.PeliculaRepository;
@@ -31,7 +33,7 @@ public class PeliculaServiceImpl implements PeliculaService {
     public PeliculaDTO findById(Long id) {
         Pelicula entity= peliculaRepository.findById(id).orElse(null);
         if(entity==null){
-            throw new RuntimeException("Pelicula no encontrada");
+            throw new ParamNotFound(String.format(ErrorMessage.OBJECT_DOESNT_EXIST,"Pelicula"));
         }
         PeliculaDTO dto=peliculaMapper.peliculaEntity2PeliculaDTO(entity,true);
         return dto;
@@ -39,6 +41,11 @@ public class PeliculaServiceImpl implements PeliculaService {
 
     @Override
     public void delete(Long id) {
+        Pelicula entity= peliculaRepository.findById(id).orElse(null);
+        if(entity==null){
+            throw new ParamNotFound(String.format(ErrorMessage.OBJECT_DOESNT_EXIST,"Pelicula"));
+        }
+
         peliculaRepository.deleteById(id);
     }
 
@@ -66,9 +73,11 @@ public class PeliculaServiceImpl implements PeliculaService {
     public PeliculaDTO update(Long id, PeliculaDTO dto) {
         Pelicula entitySearched= peliculaRepository.findById(id).orElse(null);
 
+
         if(entitySearched==null){
-            throw new RuntimeException("Pelicula no encontrada");
+            throw new ParamNotFound(String.format(ErrorMessage.OBJECT_DOESNT_EXIST,"Pelicula"));
         }
+
         this.peliculaMapper.peliculaEntityRefreshValues(entitySearched,dto);
         Pelicula entityModified=peliculaRepository.save(entitySearched);
         PeliculaDTO result= peliculaMapper.peliculaEntity2PeliculaDTO(entityModified,true);
@@ -82,7 +91,7 @@ public class PeliculaServiceImpl implements PeliculaService {
         Pelicula peliculaSearched= this.peliculaRepository.findById(id).orElse(null);
 
         if(peliculaSearched==null){
-            throw new RuntimeException("Pelicula was not found");
+            throw new ParamNotFound(String.format(ErrorMessage.OBJECT_DOESNT_EXIST,"Pelicula"));
         }
 
         Personaje personajeSearched= this.personajeRepository.findById(idPersonaje).orElse(null);
@@ -101,13 +110,13 @@ public class PeliculaServiceImpl implements PeliculaService {
         Pelicula peliculaSearched= this.peliculaRepository.findById(id).orElse(null);
 
         if(peliculaSearched==null){
-            throw new RuntimeException("Pelicula was not found");
+            throw new ParamNotFound(String.format(ErrorMessage.OBJECT_DOESNT_EXIST,"Pelicula"));
         }
 
         Personaje personajeSearched= this.personajeRepository.findById(idPersonaje).orElse(null);
 
         if (personajeSearched==null){
-            throw new RuntimeException("Personaje was not found");
+            throw new ParamNotFound(String.format(ErrorMessage.OBJECT_DOESNT_EXIST,"Personaje"));
         }
 
         peliculaSearched.getPersonajes().remove(personajeSearched);

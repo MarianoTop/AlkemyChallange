@@ -1,9 +1,11 @@
 package com.Challenge.Alkemy.service.impl;
 
+import com.Challenge.Alkemy.auxiliary.ErrorMessage;
 import com.Challenge.Alkemy.dto.GeneroDTO;
 import com.Challenge.Alkemy.dto.PeliculaDTO;
 import com.Challenge.Alkemy.entity.Genero;
 import com.Challenge.Alkemy.entity.Pelicula;
+import com.Challenge.Alkemy.exception.ParamNotFound;
 import com.Challenge.Alkemy.mapper.GeneroMapper;
 import com.Challenge.Alkemy.repository.GeneroRepository;
 import com.Challenge.Alkemy.service.GeneroService;
@@ -35,7 +37,7 @@ public class GeneroServiceImpl implements GeneroService {
 
         Genero genero = generoRepository.findById(id).orElse(null);
         if(genero==null){
-            throw new RuntimeException("Genero no encontrado");
+            throw new ParamNotFound(String.format(ErrorMessage.OBJECT_DOESNT_EXIST,"Genero "));
         }
         GeneroDTO dto= generoMapper.generoEntity2DTO(genero);
         return dto;
