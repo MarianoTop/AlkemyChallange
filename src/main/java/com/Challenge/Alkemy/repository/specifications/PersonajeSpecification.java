@@ -31,11 +31,11 @@ public class PersonajeSpecification {
             }
 
                /*https://stackoverflow.com/questions/48647847/jpa-specifications-by-example */
-            /*if (filtersDTO.getAge()!=0) {
+            if (filtersDTO.getAge()!=null) {
                 predicates.add(criteriaBuilder.equal(root.get("edad"),filtersDTO.getAge()
 
-                )
-             }*/
+                ));
+            }
 
 
             return criteriaBuilder.and(predicates.toArray(new Predicate[0]));
