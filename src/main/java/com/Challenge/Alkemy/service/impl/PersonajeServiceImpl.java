@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class PersonajeServiceImpl implements PersonajeService {
@@ -49,8 +50,8 @@ public class PersonajeServiceImpl implements PersonajeService {
 
     /* No pude hacerlo funcionar*/
     @Override
-    public List<PersonajeDTO> getByFilters(String name, Integer age, Long idMovie) {
-        PersonajeFilterDTO filtersDTO = new PersonajeFilterDTO(name,age,idMovie);
+    public List<PersonajeDTO> getByFilters(String name, Integer age, Set<Long> idMovies) {
+        PersonajeFilterDTO filtersDTO = new PersonajeFilterDTO(name,age,idMovies);
 
         List<Personaje> entities = this.personajeRepository.findAll(this.personajeSpecification.getByFilters(filtersDTO));
         List<PersonajeDTO> dtos = this.personajeMapper.personajeEntityList2DTOList(entities,true);

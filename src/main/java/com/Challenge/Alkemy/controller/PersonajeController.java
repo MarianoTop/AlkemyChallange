@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Set;
 
 
 @RestController
@@ -24,9 +25,9 @@ public class PersonajeController {
     public ResponseEntity<List<PersonajeDTO>> getDetailsByFilters(
             @RequestParam(required = false) String name,
             @RequestParam(required = false) Integer age,
-            @RequestParam(required = false) Long idMovie
+            @RequestParam(required = false) Set<Long> idMovies
             )    {
-        List<PersonajeDTO> personajes = personajeService.getByFilters(name,age,idMovie);
+        List<PersonajeDTO> personajes = personajeService.getByFilters(name,age,idMovies);
 
         return ResponseEntity.ok(personajes);
     }
