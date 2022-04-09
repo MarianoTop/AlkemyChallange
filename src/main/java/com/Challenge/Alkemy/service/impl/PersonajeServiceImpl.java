@@ -49,7 +49,7 @@ public class PersonajeServiceImpl implements PersonajeService {
 
     /* No pude hacerlo funcionar*/
     @Override
-    public List<PersonajeDTO> getByFilters(String name, int age, long idMovie) {
+    public List<PersonajeDTO> getByFilters(String name, Integer age, Long idMovie) {
         PersonajeFilterDTO filtersDTO = new PersonajeFilterDTO(name,age,idMovie);
 
         List<Personaje> entities = this.personajeRepository.findAll(this.personajeSpecification.getByFilters(filtersDTO));

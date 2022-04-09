@@ -17,5 +17,5 @@ public interface PersonajeService {
 
     public void delete(Long id);
 
-    public List<PersonajeDTO> getByFilters(String name, int age, long idMovie);
+    public List<PersonajeDTO> getByFilters(String name, Integer age, Long idMovie);
 }

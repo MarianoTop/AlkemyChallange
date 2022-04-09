@@ -23,8 +23,8 @@ public class PersonajeController {
     @GetMapping
     public ResponseEntity<List<PersonajeDTO>> getDetailsByFilters(
             @RequestParam(required = false) String name,
-            @RequestParam(required = false) int age,
-            @RequestParam(required = false) long idMovie
+            @RequestParam(required = false) Integer age,
+            @RequestParam(required = false) Long idMovie
             )    {
         List<PersonajeDTO> personajes = personajeService.getByFilters(name,age,idMovie);
 

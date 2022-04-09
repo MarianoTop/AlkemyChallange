@@ -9,10 +9,10 @@ import lombok.Setter;
 public class PersonajeFilterDTO {
 
     private String name;
-    private int age;
+    private Integer age;
     private Long idMovie;
 
-    public PersonajeFilterDTO(String name, int age, Long idMovie){
+    public PersonajeFilterDTO(String name, Integer age, Long idMovie){
         this.name=name;
         this.age=age;
         this.idMovie=idMovie;
