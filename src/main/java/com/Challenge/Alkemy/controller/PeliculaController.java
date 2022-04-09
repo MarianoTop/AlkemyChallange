@@ -33,7 +33,7 @@ public class PeliculaController {
 
         return ResponseEntity.ok(peliculas);
     }
-
+    @RequestMapping("/getAll")
     @GetMapping
     public ResponseEntity<List<PeliculaBasicDTO>> getAll(){
         List<PeliculaBasicDTO> peliculas = peliculaService.getAllPeliculas();

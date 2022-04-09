@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "7fed14d3-4745-4061-b7ff-fa6d943c83e5",
+		"_postman_id": "233c2ac4-fd0c-4e45-95f4-13d53d80a94b",
 		"name": "Alkemy-Disney",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -15,7 +15,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDkyNTEzODgsImlhdCI6MTY0OTIxNTM4OH0._x7UQhzycSktQs6MUI4e7lu6OqCW-9YEyUu1Ox4uGkk",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDk1NjkzMTUsImlhdCI6MTY0OTUzMzMxNX0.yb_QvBG8OSNy2b1_bL1mDNro9FNW9XUNE_Pj_4i8mPM",
 								"type": "text"
 							}
 						],
@@ -41,12 +41,12 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDkyMDk1MzksImlhdCI6MTY0OTE3MzUzOX0.0hEgxBQfMmhZpWDJ71GiRY-JUos3drkacDcglmQgY7M",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDk1Njg3MDEsImlhdCI6MTY0OTUzMjcwMX0.kqR3X3lWcVndhuzLaWiQwMVXS8F4PmsVApPhOQkHspY",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8080/characters",
+							"raw": "http://localhost:8080/characters?idMovies=38",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -54,6 +54,22 @@
 							"port": "8080",
 							"path": [
 								"characters"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "burns",
+									"disabled": true
+								},
+								{
+									"key": "age",
+									"value": "100",
+									"disabled": true
+								},
+								{
+									"key": "idMovies",
+									"value": "38"
+								}
 							]
 						}
 					},
@@ -66,12 +82,12 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDkyNTEzMjgsImlhdCI6MTY0OTIxNTMyOH0.0aw8A5tLDyLyLh6-liJJ7kxrz0UQl0Fg-Gm1n2t3gKk",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDk1NjkzMTUsImlhdCI6MTY0OTUzMzMxNX0.yb_QvBG8OSNy2b1_bL1mDNro9FNW9XUNE_Pj_4i8mPM",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8080/characters/88",
+							"raw": "http://localhost:8080/characters/46",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -79,7 +95,7 @@
 							"port": "8080",
 							"path": [
 								"characters",
-								"88"
+								"46"
 							]
 						}
 					},
@@ -92,7 +108,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDkyMjM5NjAsImlhdCI6MTY0OTE4Nzk2MH0.3Iua_ZN0r66oamiDojfwmpNoxwG4EEku40rdBPLLMSA",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDk1NjMyMTksImlhdCI6MTY0OTUyNzIxOX0.8JkFO4qcFaycRcgVdlhfvyHs7MQDmODoSjkUQ7OmTgY",
 								"type": "text"
 							}
 						],
@@ -126,7 +142,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDkyNTQ5OTgsImlhdCI6MTY0OTIxODk5OH0.tJZxvA6jjRxp5uO2eEz_4ReDTfYUPuEwA3n40X-izTQ",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDk1NzkwMTEsImlhdCI6MTY0OTU0MzAxMX0.FG3oWzfYW3ngg8-tQzekSf7R-lBExtk4urmsSfOM_eA",
 								"type": "text"
 							}
 						],
@@ -140,7 +156,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/characters/43",
+							"raw": "http://localhost:8080/characters/46",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -148,7 +164,7 @@
 							"port": "8080",
 							"path": [
 								"characters",
-								"43"
+								"46"
 							]
 						}
 					},
@@ -158,9 +174,15 @@
 					"name": "CharacterRemove",
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDk1NzkwMTEsImlhdCI6MTY0OTU0MzAxMX0.FG3oWzfYW3ngg8-tQzekSf7R-lBExtk4urmsSfOM_eA",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:8080/characters/39",
+							"raw": "http://localhost:8080/characters/47",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -168,7 +190,7 @@
 							"port": "8080",
 							"path": [
 								"characters",
-								"39"
+								"47"
 							]
 						}
 					},
@@ -186,12 +208,38 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDkyMTk4ODcsImlhdCI6MTY0OTE4Mzg4N30.dIBdIyQPXEmRg-lHWk335tYruzt4TSCbZVnABqlc0sI",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDk1Nzc0ODEsImlhdCI6MTY0OTU0MTQ4MX0.l483_Xhxt2LOFZmlWM5ENp7ipWDolWoQuBuw57coufQ",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8080/movies",
+							"raw": "http://localhost:8080/movies/getAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MoviesGetDetailsByFilter",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDk1Njg3MDEsImlhdCI6MTY0OTUzMjcwMX0.kqR3X3lWcVndhuzLaWiQwMVXS8F4PmsVApPhOQkHspY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/movies?name=caperucita&genreId=41&order=DESC",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -199,6 +247,20 @@
 							"port": "8080",
 							"path": [
 								"movies"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "caperucita"
+								},
+								{
+									"key": "genreId",
+									"value": "41"
+								},
+								{
+									"key": "order",
+									"value": "DESC"
+								}
 							]
 						}
 					},
@@ -211,12 +273,12 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDkyNTQ5OTgsImlhdCI6MTY0OTIxODk5OH0.tJZxvA6jjRxp5uO2eEz_4ReDTfYUPuEwA3n40X-izTQ",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDk1NjMyMTksImlhdCI6MTY0OTUyNzIxOX0.8JkFO4qcFaycRcgVdlhfvyHs7MQDmODoSjkUQ7OmTgY",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8080/movies/98",
+							"raw": "http://localhost:8080/movies/26",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -224,7 +286,7 @@
 							"port": "8080",
 							"path": [
 								"movies",
-								"98"
+								"26"
 							]
 						}
 					},
@@ -237,13 +299,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDkyNTYxMTksImlhdCI6MTY0OTIyMDExOX0.l67ENG_rVfmgoXCZaP13AYxMN1t7EJK90OvFLkpyFAs",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDk1NjMyMTksImlhdCI6MTY0OTUyNzIxOX0.8JkFO4qcFaycRcgVdlhfvyHs7MQDmODoSjkUQ7OmTgY",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"imagen\":\"/usr/temp/img3.jpg\",\r\n    \"titulo\":\"Los Simpsons 2da\",\r\n    \"fechaCreacion\": \"2021-02-20\",\r\n    \"calificacion\": 0,\r\n    \"generoId\": \"1\",\r\n    \"personajes\": [\r\n        {\r\n            \r\n                    \"imagen\":\"/usr/temp/img3.jpg\",\r\n                    \"nombre\":\"Abuelo Simpson\",\r\n                    \"edad\": 65,\r\n                    \"peso\": 120,\r\n                    \"historia\": \"abuelo de bart\"\r\n\r\n        },\r\n\r\n         {\r\n            \r\n                    \"imagen\":\"/usr/temp/img3.jpg\",\r\n                    \"nombre\":\"Bart\",\r\n                    \"edad\": 9,\r\n                    \"peso\": 30,\r\n                    \"historia\": \"hijo de homero\"\r\n\r\n        }\r\n    ]\r\n}",
+							"raw": "{\r\n   \"imagen\":\"/usr/temp/img3.jpg\",\r\n    \"titulo\":\"Freedy\",\r\n    \"fechaCreacion\": \"2022-04-25\",\r\n    \"calificacion\": 5,\r\n    \"generoId\": \"41\",\r\n    \"personajes\": [\r\n        {\r\n            \r\n                    \"imagen\":\"/usr/temp/img3.jpg\",\r\n                    \"nombre\":\"Nancy\",\r\n                    \"edad\": 15,\r\n                    \"peso\": 60,\r\n                    \"historia\": \"Joven adolescente\"\r\n\r\n        },\r\n\r\n         {\r\n            \r\n                    \"imagen\":\"/usr/temp/img3.jpg\",\r\n                    \"nombre\":\"Freedy\",\r\n                    \"edad\": 99,\r\n                    \"peso\": 30,\r\n                    \"historia\": \"Alma en pena que busca venganza\"\r\n\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -271,12 +333,12 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDkyMjM5NjAsImlhdCI6MTY0OTE4Nzk2MH0.3Iua_ZN0r66oamiDojfwmpNoxwG4EEku40rdBPLLMSA",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDk1NjMyMTksImlhdCI6MTY0OTUyNzIxOX0.8JkFO4qcFaycRcgVdlhfvyHs7MQDmODoSjkUQ7OmTgY",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8080/movies/74/personaje/87",
+							"raw": "http://localhost:8080/movies/26/personaje/46",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -284,9 +346,9 @@
 							"port": "8080",
 							"path": [
 								"movies",
-								"74",
+								"26",
 								"personaje",
-								"87"
+								"46"
 							]
 						}
 					},
@@ -299,7 +361,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDkyMjM5NjAsImlhdCI6MTY0OTE4Nzk2MH0.3Iua_ZN0r66oamiDojfwmpNoxwG4EEku40rdBPLLMSA",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDk1NzkwMTEsImlhdCI6MTY0OTU0MzAxMX0.FG3oWzfYW3ngg8-tQzekSf7R-lBExtk4urmsSfOM_eA",
 								"type": "text"
 							}
 						],
@@ -313,7 +375,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/movies/74/personaje/87",
+							"raw": "http://localhost:8080/movies/26/personaje/27",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -321,9 +383,9 @@
 							"port": "8080",
 							"path": [
 								"movies",
-								"74",
+								"26",
 								"personaje",
-								"87"
+								"27"
 							]
 						}
 					},
@@ -356,13 +418,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDkyNTY5MjIsImlhdCI6MTY0OTIyMDkyMn0.oynLJ0zwaZa4Dqxt-mk_pBuhCZIn3E6XmW318tF79yI",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDk1NzkwMTEsImlhdCI6MTY0OTU0MzAxMX0.FG3oWzfYW3ngg8-tQzekSf7R-lBExtk4urmsSfOM_eA",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n \"imagen\":\"/usr/temp/img3.jpg\",\r\n    \"titulo\":\"Los Simpsons 4\",\r\n    \"fechaCreacion\": \"2021-02-20\",\r\n    \"calificacion\": 9\r\n  \r\n\r\n}",
+							"raw": "{\r\n \"imagen\":\"/usr/temp/img3.jpg\",\r\n    \"titulo\":\"Rick and Morty\",\r\n    \"fechaCreacion\": \"2026-02-20\",\r\n    \"calificacion\": 4\r\n  \r\n\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -370,7 +432,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/movies/74",
+							"raw": "http://localhost:8080/movies/26",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -378,7 +440,7 @@
 							"port": "8080",
 							"path": [
 								"movies",
-								"74"
+								"26"
 							]
 						}
 					},
@@ -457,13 +519,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDkyNTY5MjIsImlhdCI6MTY0OTIyMDkyMn0.oynLJ0zwaZa4Dqxt-mk_pBuhCZIn3E6XmW318tF79yI",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxdXNlckBob3RtYWlsLmNvbS5wcnVlYmEiLCJleHAiOjE2NDk1Nzc0ODEsImlhdCI6MTY0OTU0MTQ4MX0.l483_Xhxt2LOFZmlWM5ENp7ipWDolWoQuBuw57coufQ",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n     \"nombre\":\"Comedia bizarra\",\r\n    \"imagen\": \"/12345\"\r\n}",
+							"raw": "{\r\n     \"nombre\":\"Terror\",\r\n    \"imagen\": \"/12345\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
