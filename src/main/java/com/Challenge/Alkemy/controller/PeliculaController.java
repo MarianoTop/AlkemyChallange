@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("movies")
@@ -20,6 +21,18 @@ import java.util.List;
 public class PeliculaController {
     @Autowired
     PeliculaService peliculaService;
+
+
+    @GetMapping
+    public ResponseEntity<List<PeliculaDTO>> getDetailsByFilters(
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) Long genreId,
+            @RequestParam(required = false, defaultValue = "ASC") String order
+    )    {
+        List<PeliculaDTO> peliculas = peliculaService.getByFilters(name,genreId,order);
+
+        return ResponseEntity.ok(peliculas);
+    }
 
     @GetMapping
     public ResponseEntity<List<PeliculaBasicDTO>> getAll(){

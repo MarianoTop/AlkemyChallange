@@ -20,7 +20,6 @@ import java.util.List;
 
 @Component
 
-/*Anotacion: No pude realizar esta parte.  */
 public class PersonajeSpecification {
     public Specification<Personaje> getByFilters(PersonajeFilterDTO filtersDTO) {
 

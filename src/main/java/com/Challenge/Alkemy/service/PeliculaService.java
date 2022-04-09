@@ -6,6 +6,7 @@ import com.Challenge.Alkemy.dto.PersonajeBasicDTO;
 import com.Challenge.Alkemy.dto.PersonajeDTO;
 
 import java.util.List;
+import java.util.Set;
 
 public interface PeliculaService {
 
@@ -22,4 +23,6 @@ public interface PeliculaService {
     public void addPersonaje(Long id, Long idPersonaje);
 
     public void removePersonaje(Long id, Long idPersonaje);
+
+    public List<PeliculaDTO> getByFilters(String name, Long idGenre, String order);
 }

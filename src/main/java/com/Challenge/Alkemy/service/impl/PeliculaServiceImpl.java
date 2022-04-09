@@ -1,10 +1,7 @@
 package com.Challenge.Alkemy.service.impl;
 
 import com.Challenge.Alkemy.auxiliary.ErrorMessage;
-import com.Challenge.Alkemy.dto.PeliculaBasicDTO;
-import com.Challenge.Alkemy.dto.PeliculaDTO;
-import com.Challenge.Alkemy.dto.PersonajeBasicDTO;
-import com.Challenge.Alkemy.dto.PersonajeDTO;
+import com.Challenge.Alkemy.dto.*;
 import com.Challenge.Alkemy.entity.Pelicula;
 import com.Challenge.Alkemy.entity.Personaje;
 import com.Challenge.Alkemy.exception.ParamNotFound;
@@ -12,12 +9,14 @@ import com.Challenge.Alkemy.mapper.PeliculaMapper;
 import com.Challenge.Alkemy.mapper.PersonajeMapper;
 import com.Challenge.Alkemy.repository.PeliculaRepository;
 import com.Challenge.Alkemy.repository.PersonajeRepository;
+import com.Challenge.Alkemy.repository.specifications.PeliculaSpecification;
 import com.Challenge.Alkemy.service.PeliculaService;
 import com.Challenge.Alkemy.service.PersonajeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class PeliculaServiceImpl implements PeliculaService {
@@ -28,6 +27,8 @@ public class PeliculaServiceImpl implements PeliculaService {
     private PeliculaRepository peliculaRepository;
     @Autowired
     private PersonajeRepository personajeRepository;
+    @Autowired
+    private PeliculaSpecification peliculaSpecification;
 
     @Override
     public PeliculaDTO findById(Long id) {
@@ -49,8 +50,14 @@ public class PeliculaServiceImpl implements PeliculaService {
         peliculaRepository.deleteById(id);
     }
 
+    @Override
+    public List<PeliculaDTO> getByFilters(String name, Long idGenre, String order) {
+        PeliculaFilterDto filtersDTO = new PeliculaFilterDto(name,idGenre,order);
 
-
+        List<Pelicula> entities = this.peliculaRepository.findAll(this.peliculaSpecification.getByFilters(filtersDTO));
+        List<PeliculaDTO> dtos = this.peliculaMapper.peliculaEntityList2DTOList(entities,true);
+        return dtos;
+    }
 
 
     @Override

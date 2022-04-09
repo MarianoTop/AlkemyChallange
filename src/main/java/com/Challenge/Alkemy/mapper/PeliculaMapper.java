@@ -74,6 +74,19 @@ public class PeliculaMapper {
         return peliculaBasicDtoList;
 
     }
+
+    public List<PeliculaDTO> peliculaEntityList2DTOList(List<Pelicula> entities, boolean load){
+
+        List<PeliculaDTO> peliculaDtoList= new ArrayList<>();
+
+        for(Pelicula entity: entities){
+            peliculaDtoList.add(this.peliculaEntity2PeliculaDTO(entity,load));
+        }
+
+        return peliculaDtoList;
+
+    }
+
     public Set<PeliculaDTO> peliculaEntitySet2DTOSet(Set<Pelicula> entities, boolean loadCharacter){
 
         Set<PeliculaDTO> peliculaDtoSet= new HashSet<>();

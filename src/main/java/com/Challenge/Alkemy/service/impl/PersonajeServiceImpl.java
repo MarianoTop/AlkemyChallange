@@ -48,7 +48,7 @@ public class PersonajeServiceImpl implements PersonajeService {
         personajeRepository.deleteById(id);
     }
 
-    /* No pude hacerlo funcionar*/
+
     @Override
     public List<PersonajeDTO> getByFilters(String name, Integer age, Set<Long> idMovies) {
         PersonajeFilterDTO filtersDTO = new PersonajeFilterDTO(name,age,idMovies);
